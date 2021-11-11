@@ -15,25 +15,24 @@ header h1{
 }
 main{
     border-bottom:1px solid #ccc;
-    position:relative;
 }
 .frame{
     display: flex;
 }
-.record_area{
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin-right: 24px;
-}
-
-.record_area li{
-    border: 2px solid black;
-    width: 300px;
+.contents{
+    width: 50%;
 }
 .contents p{
     font-size: 1.5rem;
+}
+.record_area{
+    display: table;
+    padding: 0;
+    margin-top: 24px;
+    text-align: center;
+    width: 40%;
+    height: 100px;
+    border: 1px solid black;
 }
 .btn{
     padding: 0;
