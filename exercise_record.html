@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ランニング記録表</title>
+  <link rel="stylesheet" href="css/sample.css">
+</head>
+
+<body>
+  <header>
+    <h1>ランニング記録表</h1>
+  </header>
+  <main>
+    <div class="frame">
+      <div class="contents">
+        <div class="input_area">
+          <p>日付選択</p>
+          <input type="date" id="date">
+          <p>天気選択</p>
+          <select name="" id="weather"></select>
+          <p>距離入力(km)</p>
+          <input type="number" id="distance">
+          <p>メモ</p>
+          <textarea id="text_area"></textarea>
+          <p>月間合計</p>
+          <p id="echo"></p>
+        </div>
+        <ul class="btn">
+          <li id="save">Save</li>
+          <li id="clear">Clear</li>
+        </ul>
+      </div>
+      <ul class="record_area">
+        <li>1回目</li>
+        <li>2回目</li>
+        <li>3回目</li>
+        <li>4回目</li>
+        <li>5回目</li>
+        <li>6回目</li>
+        <li>7回目</li>
+        <li>8回目</li>
+        <li>9回目</li>
+        <li>10回目</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    <small>G's</small>
+  </footer>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    const list = ["晴れ", "曇り", "大雨", "小雨", "雪", "その他"];
+    const array = [];
+    for (let i = 0; i < list.length; i++) {
+      array.push("<option>" + list[i] + "</option>");
+    }
+    $("#weather").html(array);
+
+    //保存
+    $("#save").on("click", function () {
+      const data = {
+        date: $("#date").val(),
+        weather: $("#weather").val(),
+        distance: $("#distance").val(),
+        text: $("#text_area").val(),
+      };
+      console.log(data);
+      const jsonData = JSON.stringify(data);
+      console.log(jsonData);
+      localStorage.setItem("memo", jsonData);
+    })
+
+    //削除
+    $("#clear").on("click", function () {
+      localStorage.removeItem("memo");
+      $("#date").val("");
+      $("#weather").val("");
+      $("#distance").val("");
+      $("#text_area").val("");
+    })
+
+    //取得
+    if (localStorage.getItem("memo")) {
+      const jsonData = localStorage.getItem("memo");
+      console.log(jsonData);
+      const data = JSON.parse(jsonData);
+      console.log(data);
+      $("#date").val(data.date);
+      $("#weather").val(data.weather);
+      $("#distance").val(data.distance);
+      $("#text_area").val(data.text);
+    }
+
+  </script>
+
+</body>
+
+</html>

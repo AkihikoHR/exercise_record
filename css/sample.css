@@ -1,0 +1,73 @@
+body{
+    width: 80%;
+    margin:0 auto;
+    padding:0;
+    text-align:left;
+    font-size: 32px;
+}
+header{
+    background-color: #fff;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+}
+header h1{
+    font-size: 48px;
+}
+main{
+    border-bottom:1px solid #ccc;
+    position:relative;
+}
+.frame{
+    display: flex;
+}
+.record_area{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-right: 24px;
+}
+
+.record_area li{
+    border: 2px solid black;
+    width: 300px;
+}
+.contents p{
+    font-size: 1.5rem;
+}
+.btn{
+    padding: 0;
+    border-top: 1px solid #000000;
+    display:table;  /* 定義 */
+    table-layout: fixed;
+    width:100%;
+}
+#save,#clear{
+    list-style-type:none;
+    border: 1px solid #666;
+    background-color: #FFF;
+    display:table-cell;  /* 定義 */
+    cursor: pointer;
+}
+#save:hover,#clear:hover{
+    background: #0066CC;
+    color:#fff;
+}
+input,textarea{
+    width: 70%;
+    font-size:80%;
+    box-shadow: 3px 3px 3px 3px #555;
+}
+input{
+    height: 30px;
+}
+textarea{
+    height: 120px;
+}
+
+footer{
+    background-color: #fff;
+    border-bottom:1px solid #ccc;
+    text-align: center;
+}
+
